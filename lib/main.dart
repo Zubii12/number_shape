@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _showDialog();
       _controller.clear();
     } else {
-      _message = 'Number $number is neither Square and Triangular';
+      _message = 'Number $number is neither Square or Triangular';
       _showDialog();
       _controller.clear();
     }
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return _isSquare((8 * number) + 1);
   }
 
-  Future<void> _showDialog() {
+  Future<void> _showDialog() async {
     final String number = _controller.text;
     return showDialog<void>(
       context: context,
@@ -106,8 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
               keyboardType: TextInputType.number,
               controller: _controller,
-              decoration: const InputDecoration(
-                  hintText: 'Please enter a number'),
+              decoration:
+                  const InputDecoration(hintText: 'Please enter a number'),
             ),
           ],
         ),
@@ -118,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
   @override
   void dispose() {
     super.dispose();
